@@ -1,0 +1,18 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Feed
+  order: 1
+pagination:
+  data: collections.posts
+  reverse: true
+  size: 10
+  alias: paginated_posts
+---
+
+{% set postslist = paginated_posts %}
+{% include "postslist.njk" %}
+
+
+{% if pagination.href.previous %}<a class="nav-page-button" href="{{ pagination.href.previous }}">Previous</a>{% else %}{% endif %}
+{% if pagination.href.next %}<a class="nav-page-button" href="{{ pagination.href.next }}">Next</a>{% else %}{% endif %}

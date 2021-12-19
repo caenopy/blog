@@ -1,0 +1,21 @@
+{
+  "title": "yisqe",
+  "url": "https://yisqe.com/",
+  "language": "en",
+  "description": "a place for keeping things",
+  "feed": {
+    "subtitle": "musings",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://yisqe.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://yisqe.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Nic Becker",
+    "email": "nicbecker@stanford.edu",
+    "url": "https://yisqe.com/about/"
+  }
+}

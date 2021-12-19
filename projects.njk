@@ -1,0 +1,19 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Projects
+  order: 2
+---
+
+<h3>Selected recent projects</h3>
+
+ 
+
+{% set maxPosts = collections.posts.length | min(3) %}
+<h3>Latest {% if maxPosts == 1 %}entry{% else %}{{ maxPosts }} entries{% endif %}</h3>
+
+{% set postslist = collections.posts | head(-3) %}
+{% set postslistCounter = collections.posts | length %}
+{% include "postslist.njk" %}
+
+<p>More posts can be found in the <a href="{{ '/posts/' | url }}">feed</a>.</p>

@@ -1,0 +1,427 @@
+/* Colors and "random" variables */
+:root {
+  --lightgray: #e0e0e0;
+  --gray: #C0C0C0;
+  --darkgray: #333;
+  --navy: #17050F;
+  --blue: #082840;
+  --white: #fff;
+  --random0: 23;
+  --random1: 65;
+  --random2: 14;
+  --random3: 57;
+  --random4: 32;
+  --random5: 41;
+  --random6: 13;
+  --random7: 25;
+  --random8: 35;
+  --random9: 18;
+  --random10: 23;
+  --random11: 45;
+  --random12: 34;
+  --random13: 17;
+  --random14: 32;
+  --random15: 41;
+  --random16: 33;
+  --random17: 21;
+  --random18: 10;
+  --random19: 18;
+}
+
+/* Global stylesheet */
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inconsolata', -apple-system, system-ui, sans-serif;
+  color: var(--darkgray);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: var(--white); */
+}
+/* https://stackoverflow.com/questions/147528/how-do-i-force-a-div-block-to-extend-to-the-bottom-of-a-page-even-if-it-has-no-c */
+body > * {
+  flex-shrink: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+p,
+.tmpl-post li,
+img {
+  max-width: 37.5em; /* 600px /16 */
+}
+p,
+.tmpl-post li {
+  line-height: 1.45;
+}
+a[href] {
+  color: var(--blue);
+}
+a[href]:visited {
+  color: var(--navy);
+}
+main {
+  margin: 1rem 3rem 1rem 3rem;
+  flex-grow: 1;
+}
+main :first-child {
+  margin-top: 0;
+}
+header {
+  margin: 2rem 3rem 1rem 3rem;
+  /* border-bottom: 1px dashed var(--lightgray); */
+}
+header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+table {
+  margin: 1em 0;
+}
+table td,
+table th {
+  padding-right: 1em;
+}
+
+
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  line-height: 1.5;
+}
+pre {
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: .5em 0;
+  background-color: #f6f6f6;
+}
+code {
+  word-break: break-all;
+}
+.highlight-line {
+  display: block;
+  padding: 0.125em 1em;
+  text-decoration: none; /* override del, ins, mark defaults */
+  color: inherit; /* override del, ins, mark defaults */
+}
+
+/* allow highlighting empty lines */
+.highlight-line:empty:before {
+  content: " ";
+}
+/* avoid double line breaks when using display: block; */
+.highlight-line + br {
+  display: none;
+}
+
+.highlight-line-isdir {
+  color: #b0b0b0;
+  background-color: #222;
+}
+.highlight-line-active {
+  background-color: #444;
+  background-color: hsla(0, 0%, 27%, .8);
+}
+.highlight-line-add {
+  background-color: #45844b;
+}
+.highlight-line-remove {
+  background-color: #902f2f;
+}
+
+/* Header */
+.home {
+  padding: 0 1rem;
+  float: left;
+  margin: 1rem 0; /* 16px /16 */
+  font-size: 1em; /* 16px /16 */
+}
+.home :link:not(:hover) {
+  text-decoration: none;
+}
+
+/* Post */
+.post-nav-button {
+  list-style: none;
+}
+
+/* Nav */
+.nav {
+  /* padding: 3rem 6rem 1rem 6rem; */
+  padding: 0;
+  list-style: none;
+  float: left;
+  margin: 0 0 0 0;
+
+}
+.nav-item {
+  display: block;
+  /* margin-right: 1em; */
+  margin-bottom: .5em;
+}
+.nav-item a[href]:not(:hover) {
+  text-decoration: none;
+}
+.nav-item-active {
+  /* font-weight: 700; */
+  text-decoration: underline;
+}
+.nav-breadcrumb::before {
+  position: absolute;
+  content: "<";
+  left: 2em;
+}
+.nav-page-button {
+  text-decoration: none;
+}
+.nav-page-button:hover {
+  text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  margin: 0 0 2em 0;
+}
+.postlist-cols,
+.postlist-item {
+  display: block;
+  line-height: 1.6em;  
+  margin-bottom: 1em;
+}
+.postlist-cols {
+  font-weight: 700;
+  overflow: hidden;
+}
+.postlist-item {
+  width: 100%;
+  overflow: hidden;
+}
+.postlist-img-container {
+  display: block;
+  position: fixed;
+  overflow: hidden;
+  /* for debugging: */
+  /* border-style: solid;
+  border-width: thin; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.postlist-img {
+  display: none;
+  position: absolute;
+  max-width: 40vw;
+  max-height: 400px;
+  top: calc(var(--random0) * 1vh);
+  left: calc(var(--random1) * 1vw);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+.postlist-col-title,
+.postlist-col-date,
+.postlist-col-tags {
+  float: left;
+}
+.postlist-col-title {
+  width: 100%;
+}
+.postlist-col-date,
+.postlist-col-tags {
+  width: auto;
+}
+.postlist-col-tags {
+  position: relative;
+  margin-left: 1em;
+}
+.postlist-col-tags::before {
+  position: absolute;
+  content: '|';
+  left: -.65em;
+}
+.postlist-link {
+  /* padding-left: .25em; */
+  /* padding-right: .25em; */
+  text-decoration: none;
+  /* text-underline-position: from-font;
+  text-underline-offset: 0;
+  text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+  font-weight: bold;
+}
+.tmpl-home .postlist-link {
+  /* font-size: 1.1875em; */ /* 19px /16 */
+  /* font-weight: 700; */
+}
+
+@media only screen and (min-width: 600px) {
+  .postlist-cols,
+  .postlist-item {
+    margin: 0;
+  }
+
+  .postlist-col-title {
+    width: 50%
+  }
+
+  .postlist-col-date,
+  .postlist-col-tags {
+    width: 25%;
+  }
+
+  .postlist-col-tags {
+    margin: 0;
+  }
+
+  .postlist-col-tags::before {
+    content: '';
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  main {
+    margin: 1rem 6rem 1rem 6rem;
+  }
+  header {
+    margin: 3rem 6rem 1rem 6rem;
+  }
+  .nav-breadcrumb::before {
+    position: absolute;
+    content: "<";
+    left: 5em;
+  }
+  .postlist-item:hover * {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .postlist-item:hover .postlist-img {
+    display: block;
+    opacity: 0.5;
+  }
+  /* Set positions for images  */
+  .postlist-item:nth-child(2n) .postlist-img {
+    top: calc(var(--random2) * 1vh);
+    left: calc(var(--random3) * 1vw);
+  }
+  .postlist-item:nth-child(3n) .postlist-img {
+    top: calc(var(--random4) * 1vh);
+    left: calc(var(--random5) * 1vw);
+  }
+  .postlist-item:nth-child(4n) .postlist-img {
+    top: calc(var(--random6) * 1vh);
+    left: calc(var(--random7) * 1vw);
+  }
+  .postlist-item:nth-child(5n) .postlist-img {
+    top: calc(var(--random8) * 1vh);
+    left: calc(var(--random9) * 1vw);
+  }
+  .postlist-item:nth-child(6n) .postlist-img {
+    top: calc(var(--random10) * 1vh);
+    left: calc(var(--random11) * 1vw);
+  }
+  .postlist-item:nth-child(7n) .postlist-img {
+    top: calc(var(--random12) * 1vh);
+    left: calc(var(--random13) * 1vw);
+  }
+  .postlist-item:nth-child(8n) .postlist-img {
+    top: calc(var(--random14) * 1vh);
+    left: calc(var(--random15) * 1vw);
+  }
+  .postlist-item:nth-child(9n) .postlist-img {
+    top: calc(var(--random16) * 1vh);
+    left: calc(var(--random17) * 1vw);
+  }
+  .postlist-item:nth-child(10n) .postlist-img {
+    top: calc(var(--random18) * 1vh);
+    left: calc(var(--random19) * 1vw);
+  }
+
+}
+
+
+
+/* Tags */
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* text-transform: uppercase; */
+  /*font-size: 0.75em; */ /* 12px /16 */
+  /* padding: 0.08333333333333em 0.3333333333333em; */ /* 1px 4px /12 */
+  /* margin-left: 0.6666666666667em; */ /* 8px /12 */
+  /* margin-top: 0.5em; */ /* 6px /12 */
+  /*margin-bottom: 0.5em; */ /* 6px /12 */
+  /* color: var(--darkgray); */
+  /* border: 1px solid var(--gray); */
+  /* border-radius: 0.25em; */ /* 3px /12 */
+  text-decoration: none;
+  /* line-height: 1.8; */
+}
+a[href].post-tag,
+a[href].post-tag:visited {
+  color: inherit;
+}
+a[href].post-tag:hover,
+a[href].post-tag:focus {
+  /* background-color: var(--lightgray); */
+  text-decoration: underline;
+}
+.postlist-item > .post-tag {
+  align-self: center;
+}
+
+/* Warning */
+.warning {
+  background-color: #ffc;
+  padding: 1em 0.625em; /* 16px 10px /16 */
+}
+.warning ol:only-child {
+  margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.direct-link {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  margin-left: .1em;
+}
+a[href].direct-link,
+a[href].direct-link:visited {
+  color: transparent;
+}
+a[href].direct-link:focus,
+a[href].direct-link:focus:visited,
+:hover > a[href].direct-link,
+:hover > a[href].direct-link:visited {
+  color: #aaa;
+}

@@ -1,0 +1,36 @@
+<ul reversed class="postlist">
+  <li class="postlist-cols">
+    <div class="postlist-col-title">
+      Title
+    </div>
+    <div class="postlist-col-date">
+      Date
+    </div>
+    <div class="postlist-col-tags">
+      Tags
+    </div>
+  </li>
+{% for post in postslist %}
+  <li class="postlist-item">
+    <a href="{{ post.url | url }}" class="postlist-link">
+      <div class="postlist-col-title">
+        {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+      </div>
+      <div class="postlist-col-date">
+      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      </div>
+    </a>
+    <div class="postlist-col-tags">
+    {% for tag in post.data.tags | filterTagList %}
+      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>{% if not loop.last %},{% endif %}
+    {% endfor %}
+    </div>
+    {% if post.data.image %}
+      <div class="postlist-img-container">
+      <img class="postlist-img" src="{{ post.data.image  | url }}" alt="{{ post.title }}">
+      </div>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
