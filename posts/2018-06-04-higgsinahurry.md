@@ -2,8 +2,9 @@
 layout: layouts/post.njk
 title: Higgs in a Hurry
 date: 2018-06-04
-tags: physics
+tags: physics, hidden
 image: https://i.imgur.com/XHb15Gj.png
+eleventyExcludeFromCollections: true
 ---
 
 Explaining particle physics is hard, especially if you're trying to get an explanation between that of a mainstream news article and that of an academic paper.

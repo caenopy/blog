@@ -36,5 +36,3 @@ From there, it's just a matter of deciding how many pendulums and degrees of fre
 * [http://www.karlsims.com/harmonograph/](http://www.karlsims.com/harmonograph/)
 * [http://paulbourke.net/geometry/harmonograph/](http://paulbourke.net/geometry/harmonograph/)
 * [https://johncarlosbaez.wordpress.com/2014/07/18/the-harmonograph/](https://johncarlosbaez.wordpress.com/2014/07/18/the-harmonograph/)
-
-*This project placed runner up out of 70+ submissions in the CS 106A graphics contest*

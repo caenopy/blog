@@ -2,8 +2,9 @@
 layout: layouts/post.njk
 title: Atlaniakea.io
 date: 2016-01-16
-tags: 
+tags: hidden
 image: /img/atlaniakea.jpeg
+eleventyExcludeFromCollections: true
 ---
 
 Somewhere around my sophomore year of high school, I got in the habit of writing project ideas down. I launched a blog thereafter which now serves as a home for around 3 years of work on various things.

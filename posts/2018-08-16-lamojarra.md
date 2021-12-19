@@ -2,8 +2,9 @@
 layout: layouts/post.njk
 title: Mojarra
 date: 2018-08-16
-tags: climbing
+tags: climbing, hidden
 image: https://i.imgur.com/ZKX5wSK.jpg
+eleventyExcludeFromCollections: true
 ---
 
 ![](https://lh3.googleusercontent.com/dEOicYm3uGliiyjJpOQLcl1eALoxEktnaH0BXodKbr1-WXa-mgbcy8CF60Z9OGh8kJ4_seYm5fFoEo6nvg17P_8mcjk4PofcimMKkHGg77gvCUT_ig3066RWSDbZAwSkCFe2Oa4oEqY=w1152-h1534-no)
