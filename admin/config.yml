@@ -16,5 +16,6 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Date", name: "date", widget: "date", default: "" }
+      - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Post Body", name: "body", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
