@@ -5,12 +5,17 @@ eleventyNavigation:
   order: 2
 ---
 
-<h3>Selected recent projects</h3>
+<u>Selected recent projects:</u>
 
+
+<br>
+<br>
  
 
 {% set maxPosts = collections.posts.length | min(3) %}
-<h3>Latest {% if maxPosts == 1 %}entry{% else %}{{ maxPosts }} entries{% endif %}</h3>
+<u>Latest {% if maxPosts == 1 %}entry:{% else %}{{ maxPosts }} entries:{% endif %}</u>
+<br>
+<br>
 
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
