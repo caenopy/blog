@@ -7,6 +7,12 @@ image: https://i.imgur.com/Dr4OSKJ.png
 mathjax: true
 ---
 
+<!-- Mapbox stuff -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
+
 This is a working draft motivated by Kevin M. Kruse's book [White Flight: Atlanta and the Making of Modern Conservatism](https://press.princeton.edu/titles/8043.html), [Brookings analysis on income inequality](https://www.brookings.edu/research/city-and-metropolitan-income-inequality-data-reveal-ups-and-downs-through-2016/), and my birth(place).
 
 It began as a visualization exercise, but I'm slowly working towards something true to the title.
