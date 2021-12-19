@@ -1,6 +1,6 @@
 # blog
 
-This is a repository for my personal blog. It is based on the [Eleventy base blog](https://github.com/11ty/eleventy-base-blog) and deployed via Netlify. The styling is inspired by Lily Konings' [Louie](https://github.com/lilykonings/louie).
+This is a repository for my project blog. It is based on the [Eleventy base blog](https://github.com/11ty/eleventy-base-blog) and deployed via Netlify. The styling is inspired by Lily Konings' [Louie](https://github.com/lilykonings/louie).
 
 
 ### Implementation Notes
