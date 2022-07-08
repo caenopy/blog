@@ -5,6 +5,7 @@ date: 2019-06-16
 tags: visualization
 image: https://i.imgur.com/Dr4OSKJ.png
 mathjax: true
+eleventyExcludeFromCollections: true
 ---
 
 <!-- Mapbox stuff -->

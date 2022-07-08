@@ -4,6 +4,7 @@ title: Tribute to fractal geometry
 date: 2016-12-06
 tags: digital fabrication
 image: http://i.imgur.com/k8UpbPx.png
+eleventyExcludeFromCollections: true
 ---
 
 Looking at topographic maps reminded me of the branching patterns of electrical breakdown in material or air. The project entails two parts: 3D printed terrain and Lichtenberg figures/wood staining.

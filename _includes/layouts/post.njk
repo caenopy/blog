@@ -8,8 +8,8 @@ eleventyNavigation:
 <h1>{{ title }}</h1>
 
 <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time> ~
-{% for tag in tags | filterTagList %}
-{%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+{%- for tag in tags | filterTagList %}
+{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
 <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>{% if not loop.last %},{% endif %}
 {% endfor %}
 
@@ -20,7 +20,7 @@ eleventyNavigation:
 {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
 {%- if nextPost or previousPost %}
 <br>
-<hr>
+{# <hr> #}
 <br>
 <ul>
   {%- if nextPost %}<li class="post-nav-button">Next: <a class="nav-page-button" href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}

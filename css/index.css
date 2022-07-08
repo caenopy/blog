@@ -1,11 +1,24 @@
-/* Colors and "random" variables */
+/* Defaults */
 :root {
-  --lightgray: #e0e0e0;
-  --gray: #C0C0C0;
-  --darkgray: #333;
-  --navy: #17050F;
-  --blue: #082840;
-  --white: #fff;
+  /* --font-family: Andada Pro, -apple-system, system-ui, sans-serif; */
+  /* --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace; */
+}
+
+/* Theme colors */
+:root {
+  --color-gray-20: #e0e0e0;
+  --color-gray-50: #C0C0C0;
+  --color-gray-90: #333;
+
+  --background-color: #fff;
+
+  --text-color: var(--color-gray-90);
+  --text-color-link: #082840;
+  --text-color-link-visited: #17050F;
+}
+
+/* Hover photo placement variables */
+:root {
   --random0: 23;
   --random1: 65;
   --random2: 14;
@@ -28,6 +41,20 @@
   --random19: 18;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-20: #e0e0e0;
+    --color-gray-50: #C0C0C0;
+    --color-gray-90: #dad8d8;
+
+    /* --text-color is assigned to --color-gray-_ above */
+    --text-color-link: #1493fb;
+    --text-color-link-visited: #a6a6f8;
+
+    --background-color: #15202b;
+  }
+}
+
 /* Global stylesheet */
 * {
   box-sizing: border-box;
@@ -37,12 +64,12 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Inconsolata', -apple-system, system-ui, sans-serif;
-  color: var(--darkgray);
+  font-family: var(--font-family);
+  color: var(--text-color);
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: var(--white); */
+  background-color: var(--background-color);
 }
 /* https://stackoverflow.com/questions/147528/how-do-i-force-a-div-block-to-extend-to-the-bottom-of-a-page-even-if-it-has-no-c */
 body > * {
@@ -61,10 +88,10 @@ p,
   line-height: 1.45;
 }
 a[href] {
-  color: var(--blue);
+  color: var(--text-color-link);
 }
 a[href]:visited {
-  color: var(--navy);
+  color: var(--text-color-link-visited);
 }
 main {
   margin: 1rem 3rem 1rem 3rem;
@@ -75,7 +102,7 @@ main :first-child {
 }
 header {
   margin: 2rem 3rem 1rem 3rem;
-  /* border-bottom: 1px dashed var(--lightgray); */
+  /* border-bottom: 1px dashed var(--color-gray-20); */
 }
 header:after {
   content: "";
@@ -89,7 +116,6 @@ table td,
 table th {
   padding-right: 1em;
 }
-
 
 pre,
 code {
@@ -108,7 +134,6 @@ pre {
   -o-tab-size: 2;
   tab-size: 2;
   -webkit-hyphens: none;
-  -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
   padding: 1em;
@@ -117,36 +142,6 @@ pre {
 }
 code {
   word-break: break-all;
-}
-.highlight-line {
-  display: block;
-  padding: 0.125em 1em;
-  text-decoration: none; /* override del, ins, mark defaults */
-  color: inherit; /* override del, ins, mark defaults */
-}
-
-/* allow highlighting empty lines */
-.highlight-line:empty:before {
-  content: " ";
-}
-/* avoid double line breaks when using display: block; */
-.highlight-line + br {
-  display: none;
-}
-
-.highlight-line-isdir {
-  color: #b0b0b0;
-  background-color: #222;
-}
-.highlight-line-active {
-  background-color: #444;
-  background-color: hsla(0, 0%, 27%, .8);
-}
-.highlight-line-add {
-  background-color: #45844b;
-}
-.highlight-line-remove {
-  background-color: #902f2f;
 }
 
 /* Header */
@@ -172,7 +167,6 @@ code {
   list-style: none;
   float: left;
   margin: 0 0 0 0;
-
 }
 .nav-item {
   display: block;
@@ -213,7 +207,7 @@ code {
   margin-bottom: 1em;
 }
 .postlist-cols {
-  font-weight: 700;
+  /* font-weight: 700; */
   overflow: hidden;
 }
 .postlist-item {
@@ -221,9 +215,9 @@ code {
   overflow: hidden;
 }
 .postlist-img-container {
-  display: block;
   position: fixed;
   overflow: hidden;
+  pointer-events: none;
   /* for debugging: */
   /* border-style: solid;
   border-width: thin; */
@@ -231,7 +225,7 @@ code {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 1;
 }
 .postlist-img {
   display: none;
@@ -240,14 +234,14 @@ code {
   max-height: 400px;
   top: calc(var(--random0) * 1vh);
   left: calc(var(--random1) * 1vw);
-  z-index: -1;
-  opacity: 0;
+  opacity: 0; 
   transition: opacity 500ms;
 }
 .postlist-col-title,
 .postlist-col-date,
 .postlist-col-tags {
   float: left;
+  position: relative;
 }
 .postlist-col-title {
   width: 100%;
@@ -257,7 +251,6 @@ code {
   width: auto;
 }
 .postlist-col-tags {
-  position: relative;
   margin-left: 1em;
 }
 .postlist-col-tags::before {
@@ -282,6 +275,12 @@ code {
 }
 
 @media only screen and (min-width: 600px) {
+  .postlist-col-title,
+  .postlist-col-date,
+  .postlist-col-tags {
+  z-index: 2;
+  }
+
   .postlist-cols,
   .postlist-item {
     margin: 0;
@@ -310,7 +309,7 @@ code {
     margin: 1rem 6rem 1rem 6rem;
   }
   header {
-    margin: 3rem 6rem 1rem 6rem;
+    margin: 5rem 6rem 1rem 6rem;
   }
   .nav-breadcrumb::before {
     position: absolute;
@@ -323,8 +322,10 @@ code {
   }
   .postlist-item:hover .postlist-img {
     display: block;
-    opacity: 0.5;
+    z-index: 1;
+    opacity: 1; 
   }
+
   /* Set positions for images  */
   .postlist-item:nth-child(2n) .postlist-img {
     top: calc(var(--random2) * 1vh);
@@ -365,8 +366,6 @@ code {
 
 }
 
-
-
 /* Tags */
 .post-tag {
   display: inline-flex;
@@ -378,8 +377,8 @@ code {
   /* margin-left: 0.6666666666667em; */ /* 8px /12 */
   /* margin-top: 0.5em; */ /* 6px /12 */
   /*margin-bottom: 0.5em; */ /* 6px /12 */
-  /* color: var(--darkgray); */
-  /* border: 1px solid var(--gray); */
+  /* color: var(--color-gray-90); */
+  /* border: 1px solid var(--color-gray-90); */
   /* border-radius: 0.25em; */ /* 3px /12 */
   text-decoration: none;
   /* line-height: 1.8; */
@@ -390,19 +389,29 @@ a[href].post-tag:visited {
 }
 a[href].post-tag:hover,
 a[href].post-tag:focus {
-  /* background-color: var(--lightgray); */
+  /* background-color: var(--color-gray-20); */
   text-decoration: underline;
 }
 .postlist-item > .post-tag {
   align-self: center;
 }
 
-/* Warning */
-.warning {
-  background-color: #ffc;
+/* Infobox */
+:root {
+  --color-infobox: #ffc;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-infobox: #082840;
+  }
+}
+
+.infobox {
+  background-color: var(--color-infobox);
+  color: var(--color-gray-90);
   padding: 1em 0.625em; /* 16px 10px /16 */
 }
-.warning ol:only-child {
+.infobox ol:only-child {
   margin: 0;
 }
 

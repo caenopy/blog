@@ -11,7 +11,7 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    {# <link href="https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap" rel="stylesheet"> #}
   </head>
   <body>
     <header>
@@ -20,7 +20,7 @@
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
       <ul class="nav">
       {%- for entry in collections.all | eleventyNavigationBreadcrumb("Post") %}
-        <li class="nav-item nav-breadcrumb{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+        <li class="nav-item nav-breadcrumb{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">№</a></li>
       {%- endfor %}
       </ul>
     </header>

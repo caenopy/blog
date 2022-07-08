@@ -4,6 +4,7 @@ title:  Harmony and The Harmonograph
 date: 2018-03-19
 tags: art
 image: https://imgur.com/p5mTEt6.png
+eleventyExcludeFromCollections: true
 ---
 ![](https://imgur.com/0b4gMWj.png)
 *From [Harmonograph - A Visual Guide to the Mathematics of Music (Ashton)](https://www.scribd.com/doc/147969892/Anthony-Ashton-Harmonograph-A-Visual-Guide-to-the-Mathematics-of-Music-cleaned)*
