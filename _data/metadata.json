@@ -1,21 +1,21 @@
 {
-  "title": "yisqe",
-  "url": "https://yisqe.com/",
+  "title": "n0n0",
+  "url": "https://n0n0.netlify.app/",
   "language": "en",
   "description": "a place for keeping things",
   "feed": {
     "subtitle": "musings",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://yisqe.com/"
+    "id": "https://n0n0.netlify.app/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://yisqe.com/feed/feed.json"
+    "url": "https://n0n0.netlify.app/feed/feed.json"
   },
   "author": {
-    "name": "Nic Becker",
-    "email": "nicbecker@stanford.edu",
-    "url": "https://yisqe.com/about/"
+    "name": "nb",
+    "email": "",
+    "url": "https://n0n0.netlify.app/about/"
   }
 }
