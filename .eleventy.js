@@ -13,6 +13,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("vis");
+  eleventyConfig.addPassthroughCopy("admin");
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
