@@ -19,4 +19,4 @@ collections:
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Post Body", name: "body", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Show Post", name: "eleventyExcludeFromCollections", widget: "boolean", default: false}
+      - { label: "Hide Post", name: "eleventyExcludeFromCollections", widget: "boolean", default: true}
