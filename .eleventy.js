@@ -8,14 +8,16 @@ const markdownItAnchor = require("markdown-it-anchor");
 const pluginMathjax = require("eleventy-plugin-mathjax");
 
 module.exports = function(eleventyConfig) {
+  // Copy the `img` and `css` folders to the output
+  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("vis");
+
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginMathjax);
-
-  // https://www.11ty.dev/docs/data-deep-merge/
-  eleventyConfig.setDataDeepMerge(true);
 
   // Alias `layout: post` to `layout: layouts/post.njk`
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
@@ -62,11 +64,6 @@ module.exports = function(eleventyConfig) {
     return filterTagList([...tagSet]);
   });
 
-  // Copy the `img` and `css` folders to the output
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("vis");
-
   // Customize Markdown library and settings:
   let markdownLibrary = markdownIt({
     html: true,
@@ -79,7 +76,7 @@ module.exports = function(eleventyConfig) {
       symbol: "#",
       level: [1,2,3,4],
     }),
-    slugify: eleventyConfig.getFilter("slug")
+    slugify: eleventyConfig.getFilter("slugify")
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
@@ -112,6 +109,12 @@ module.exports = function(eleventyConfig) {
       "yml"
     ],
 
+    // Pre-process *.md files with: (default: `liquid`)
+    markdownTemplateEngine: "njk",
+
+    // Pre-process *.html files with: (default: `liquid`)
+    htmlTemplateEngine: "njk",
+
     // -----------------------------------------------------------------
     // If your site deploys to a subdirectory, change `pathPrefix`.
     // Don’t worry about leading and trailing slashes, we normalize these.
@@ -125,15 +128,6 @@ module.exports = function(eleventyConfig) {
     // Optional (default is shown)
     pathPrefix: "/",
     // -----------------------------------------------------------------
-
-    // Pre-process *.md files with: (default: `liquid`)
-    markdownTemplateEngine: "njk",
-
-    // Pre-process *.html files with: (default: `liquid`)
-    htmlTemplateEngine: "njk",
-
-    // Opt-out of pre-processing global data JSON files: (default: `liquid`)
-    dataTemplateEngine: false,
 
     // These are all optional (defaults are shown):
     dir: {
